@@ -1,0 +1,51 @@
+@use "../abstracts/" as *;
+
+.experience {
+  &__inner {
+    padding: 10px;
+
+    @include respond-to("medium") {
+      @include grid(25%, 1fr, start, start);
+    }
+  }
+
+  &__tabs {
+    margin-bottom: 20px;
+
+    // Give the tabs a scroll bar for smaller screens
+    overflow-x: scroll;
+    white-space: nowrap;
+
+    // For each tab so they are spaced out more in smaller screens
+    & > * {
+      margin-right: 7px;
+      text-transform: capitalize;
+    }
+
+    @include respond-to("medium") {
+      @include flex(column, "", left);
+
+      // For each tab so they are spaced out more in larger screens
+      & > * {
+        padding-left: 20px;
+        height: 50px;
+        border-left: 2px solid var(--accentColor);
+        text-align: left;
+      }
+    }
+  }
+
+  &__company {
+    & a {
+      color: var(--accentColor);
+
+      @include pseudo(true, after, "", "", 0, 0);
+    }
+  }
+
+  &__location {
+    font-style: italic;
+    font-weight: 300;
+    font-size: 70%;
+  }
+}

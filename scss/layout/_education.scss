@@ -1,0 +1,15 @@
+@use "../abstracts/" as *;
+
+.education {
+  &__box {
+    @include respond-to("medium") {
+      display: grid;
+      grid-template-columns: 50% 50%;
+      place-items: center;
+    }
+  }
+
+  &__date {
+    font-style: italic;
+  }
+}

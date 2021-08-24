@@ -1,0 +1,77 @@
+@use "../abstracts" as *;
+
+.to-top-btn {
+  position: fixed;
+  z-index: 2;
+  right: 0.4em;
+  bottom: 1em;
+  padding: 0 4px;
+  color: var(--textColorOpp);
+  border-radius: $borderRadius;
+  background-color: var(--textColor);
+
+  @include respond-to("large") {
+    right: 1em;
+  }
+}
+
+.view-all-btn {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.btn {
+  display: inline-block;
+  border-radius: $borderRadius;
+  overflow: hidden;
+  padding: 0.5em 0.8em;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 0.95rem;
+  transition: $transition;
+  cursor: pointer;
+
+  &--accent,
+  &--accent:link,
+  &--accent:visited {
+    border: 2px solid var(--accentColor);
+    background-color: var(--accentColor);
+    color: var(--textColorOpp);
+  }
+
+  &--accent:hover,
+  &--accent:active,
+  &--accent:focus {
+    border: 2px solid var(--accentColor2);
+    background-color: var(--accentColor2);
+    color: var(--textColorOpp);
+  }
+
+  &--ghost,
+  &--ghost:link,
+  &--ghost:visited {
+    border: 2px dashed var(--accentColor);
+  }
+
+  &--ghost:hover,
+  &--ghost:active,
+  &--ghost:focus {
+    background-color: var(--accentColor);
+    color: var(--textColorOpp);
+  }
+
+  &--clear,
+  &--clear:link,
+  &--clear:visited {
+    border: none;
+    background-color: transparent;
+    color: var(--textColor);
+  }
+
+  &--clear:hover,
+  &--clear:active,
+  &--clear:focus {
+    background-color: var(--accentColor);
+    color: var(--textColorOpp);
+  }
+}

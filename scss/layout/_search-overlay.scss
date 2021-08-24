@@ -1,0 +1,81 @@
+@use "../abstracts/" as *;
+@use "section" as *;
+
+.search-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  overflow-y: auto;
+  overflow-x: hidden;
+  visibility: hidden;
+  opacity: 0;
+  background-color: var(--backgroundLvl1);
+
+  &--active {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  &__top {
+    position: fixed;
+    z-index: 2;
+    width: 100%;
+    box-shadow: var(--shadow);
+    background-color: var(--backgroundLvl3);
+  }
+
+  &__bottom {
+    margin-top: 80px;
+    margin-bottom: 30px;
+    height: 80%;
+    padding: 20px 40px;
+  }
+
+  &__title {
+    @extend .section__header;
+
+    &:not(:first-child) {
+      margin-top: 50px;
+    }
+  }
+
+  &__icon {
+    margin-right: 12px;
+  }
+
+  &__close {
+    margin-left: auto;
+  }
+
+  // Needed to push search-overlay__close to the right
+  &__inner {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.search-term {
+  width: 80%;
+  border: none;
+  padding: 15px 0;
+  margin: 0;
+  background-color: transparent;
+  outline: none;
+  font-size: 1.2rem;
+  color: var(--textColor);
+
+  // Override autofill. Yay specificity!
+  &:-webkit-autofill,
+  &:-webkit-autofill:hover,
+  &:-webkit-autofill:focus {
+    border: none;
+    -webkit-box-shadow: 0 0 0px 1000px #00000000 inset;
+    -webkit-text-fill-color: var(--textColor);
+    caret-color: var(--textColor);
+    transition: background-color 5000s ease-in-out 0s;
+  }
+
+  &:-webkit-autofill::first-line {
+    font-size: 1.2rem;
+  }
+}

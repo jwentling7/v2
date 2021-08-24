@@ -1,0 +1,94 @@
+@use "variables" as *;
+
+//-----------------------------------------
+// Media queries :]
+//-----------------------------------------
+@mixin respond-to($breakpoint) {
+  $raw-query: map-get($breakpoints, $breakpoint);
+
+  @if $raw-query {
+    $query: if(
+      type-of($raw-query) == "string",
+      unquote($raw-query),
+      inspect($raw-query)
+    );
+
+    @media #{$query} {
+      @content;
+    }
+  }
+}
+
+//-----------------------------------------
+// Flex <3 used in centering sections and adjusting the main-nav
+//-----------------------------------------
+@mixin flex(
+  $direction: row,
+  $justify-content: space-between,
+  $align-items: center
+) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify-content;
+  align-items: $align-items;
+}
+
+//-----------------------------------------
+// Used inside containers like experience, about-me
+//-----------------------------------------
+@mixin grid(
+  $col1: 50%,
+  $col2: 1fr,
+  $justify-items: center,
+  $align-items: center,
+  $gap: 20px
+) {
+  display: grid;
+  grid-template-columns: $col1 $col2;
+  justify-items: $justify-items;
+  align-items: $align-items;
+  gap: $gap;
+}
+
+//-----------------------------------------
+// Use this mainly for the underlines
+//-----------------------------------------
+@mixin pseudo(
+  $hover: false,
+  $loc: after,
+  $top: 0,
+  $right: 0,
+  $bottom: 0,
+  $left: 50%,
+  $width: 100%,
+  $height: 1px,
+  $background: var(--accentColor)
+) {
+  position: relative;
+
+  &::#{$loc} {
+    content: "";
+    position: absolute;
+    top: $top;
+    bottom: $bottom;
+    left: $left;
+    right: $right;
+    width: $width;
+    height: $height;
+    border-radius: $borderRadius;
+    background: $background;
+    transform: translate(-50%);
+
+    @if $hover {
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+    }
+  }
+
+  @if $hover {
+    &:hover::#{$loc},
+    &:active::#{$loc} {
+      transform: scale(1);
+    }
+  }
+}

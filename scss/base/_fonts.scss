@@ -1,0 +1,14 @@
+@use "../abstracts/" as *;
+
+html {
+  font-family: "Lato", "Arial", sans-serif;
+  font-size: 18px;
+  font-weight: 300;
+  text-rendering: optimizeLegibility;
+  color: var(--textColor);
+}
+
+p,
+li {
+  line-height: 1.75rem;
+}

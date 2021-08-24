@@ -1,0 +1,121 @@
+@use "../abstracts/" as *;
+
+//-----------------------------------------
+// This file got super confusing when switching to input checkbox toggler for mobile nav.
+// I was going to do JS like v1 of my last website but... *shrug* :]
+// something different to try!
+//-----------------------------------------
+
+.site-header {
+  position: fixed;
+  z-index: 3;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  padding: 0.5rem 0;
+  background-color: var(--backgroundLvl1);
+  box-shadow: var(--shadow);
+  text-transform: uppercase;
+
+  .container {
+    @include flex();
+  }
+
+  &__mobile-search {
+    display: block;
+    margin-left: auto;
+
+    @include respond-to("medium") {
+      display: none;
+    }
+  }
+
+  // Houses input checkbox(.toggler), hamburger icon, and site-header__menu
+  &__menu-wrap {
+    position: relative;
+    margin-left: 15px;
+  }
+
+  // Houses the main-nav
+  &__menu {
+    @include respond-to("small") {
+      visibility: hidden;
+      position: absolute;
+      z-index: 8;
+      right: -30px;
+      top: -20px;
+      width: 100vw;
+      padding-top: 68px;
+      background-color: var(--backgroundLvl2);
+      opacity: 0;
+      transform: translateY(-20%);
+      transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+      padding-bottom: 20px;
+
+      &--active {
+        visibility: visible;
+        opacity: 1;
+        transform: translateY(0%);
+      }
+    }
+
+    @include respond-to("medium") {
+      visibility: visible;
+      margin-left: auto;
+      font-size: 0.75rem;
+
+      @include flex();
+    }
+
+    @include respond-to("large") {
+      font-size: 0.95rem;
+    }
+  }
+
+  &__buttons {
+    margin-left: $navPad;
+
+    @include respond-to("medium") {
+      @include flex();
+    }
+  }
+
+  // The Resume button and search icon get margin, but Contact
+  // button does not get it.
+  &__buttons > *:not(:first-child) {
+    margin-left: $navPad;
+
+    @include respond-to("why") {
+      margin-left: $navPadSm;
+    }
+  }
+
+  &__search {
+    visibility: hidden;
+
+    // Separated the media query here because I don't want this
+    // search icon in the mobile menu option since a different
+    // search icon will be included next to the hamburger icon
+    @include respond-to("medium") {
+      visibility: visible;
+    }
+  }
+}
+
+.jw-logo {
+  z-index: 10;
+  width: 42px;
+
+  @include respond-to("medium") {
+    width: 64px;
+  }
+}
+
+.hamburger {
+  position: relative;
+  z-index: 9;
+
+  @include respond-to("medium") {
+    display: none;
+  }
+}

@@ -1,0 +1,33 @@
+@use "../abstracts/" as *;
+
+.about-me {
+  --margin: 30px auto 0;
+
+  &__box {
+    @include respond-to("medium") {
+      @include grid(50%, 1fr, NULL, NULL);
+    }
+  }
+
+  &__img {
+    max-width: 100%;
+
+    img {
+      margin: 0 auto;
+      max-width: 300px;
+    }
+  }
+
+  &__bio {
+    margin: var(--margin);
+    max-width: 550px;
+
+    @include respond-to("medium") {
+      margin-top: 0;
+    }
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+  }
+}

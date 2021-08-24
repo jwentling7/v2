@@ -1,0 +1,26 @@
+@use "../abstracts/" as *;
+
+.posts {
+  &__box {
+    @include respond-to("large") {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      height: auto;
+    }
+  }
+
+  // For search overlay results
+  &__box2 {
+    @include respond-to("large") {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      height: auto;
+    }
+
+    @include respond-to("x-large") {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+}

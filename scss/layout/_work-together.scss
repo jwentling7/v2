@@ -1,0 +1,9 @@
+@use "../abstracts/" as *;
+
+.work-together {
+  text-align: center;
+
+  &__buttons > *:not(:first-child) {
+    margin-left: $navPad;
+  }
+}

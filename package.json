@@ -1,0 +1,19 @@
+{
+  "name": "jwentling7-v2",
+  "version": "1.0.0",
+  "description": "jwentling7-v2",
+  "main": "index.js",
+  "scripts": {
+    "build": "wp-scripts build",
+    "start": "wp-scripts start",
+    "compile:sass": "sass scss/main.scss css/style.css -w"
+  },
+  "author": "Jessica Wentling",
+  "license": "ISC",
+  "devDependencies": {
+    "@wordpress/scripts": "^16.1.4",
+    "node-sass": "^6.0.1"
+  },
+  "dependencies": {},
+  "keywords": []
+}

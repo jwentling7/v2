@@ -1,0 +1,62 @@
+@use "../abstracts/" as *;
+@use "../components/" as *;
+
+.post {
+  &__content {
+    margin: 0 auto;
+    max-width: 60ch;
+
+    // This is for the date
+    p:first-child {
+      margin-top: 20px;
+      font-style: italic;
+    }
+
+    h2 {
+      margin-top: 40px;
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+
+      @include pseudo(false, after, NULL, NULL, 0, 20px, 40px, 2px);
+
+      @extend .title--medium;
+    }
+
+    h3 {
+      margin-bottom: 20px;
+    }
+
+    li {
+      margin-left: 20px;
+    }
+
+    strong {
+      font-weight: 700;
+    }
+
+    code {
+      padding: 0.1em 0.2em;
+      border-radius: $borderRadius;
+      background: var(--magentaTrans);
+    }
+  }
+
+  &__questions {
+    // Question
+    & li::marker {
+      content: "Q:\00a0";
+      font-weight: 700;
+    }
+
+    // Answer
+    & li ul li {
+      margin-top: 20px;
+      margin-bottom: 40px;
+
+      &::marker {
+        content: "A:\00a0";
+        font-weight: 700;
+      }
+    }
+  }
+}

@@ -1,0 +1,171 @@
+@use "../abstracts/" as *;
+
+:root {
+  --white: #fff;
+  --black: #000;
+  --lightMagenta: hsl(300, 70%, 78%);
+  --magenta: hsl(300, 69%, 65%);
+  --magentaTrans: hsl(300, 70%, 78%, 30%);
+  --lightRed: hsl(349, 52%, 61%);
+  --shadowLight: 2px 2px 22px hsl(0, 0%, 80%);
+  --shadowDark: 2px 2px 22px hsl(0, 0%, 7%);
+
+  --bgDark400: hsl(300, 15%, 12%);
+  --bgDark300: hsl(300, 9%, 18%);
+  --bgDark200: hsl(300, 7%, 22%);
+  --bgDark100: hsl(300, 6%, 26%);
+
+  --bgLight400: rgb(240, 240, 240);
+  --bgLight300: rgb(238, 238, 238);
+  --bgLight200: rgb(228, 228, 228);
+  --bgLight100: #fff;
+}
+
+// TODO work on color scheme
+.light-theme {
+  --textColor: var(--black);
+  --textColorOpp: var(--white);
+  --accentColor: var(--magenta);
+  --accentColor2: var(--lightMagenta);
+  --shadow: var(--shadowLight);
+
+  --backgroundBase: var(--bgLight400);
+  --backgroundLvl1: var(--bgLight300);
+  --backgroundLvl2: var(--bgLight200);
+  --backgroundLvl3: var(--bgLight100);
+}
+
+.dark-theme {
+  --textColor: var(--white);
+  --textColorOpp: var(--black);
+  --accentColor: var(--lightMagenta);
+  --accentColor2: var(--magenta);
+  --shadow: var(--shadowDark);
+
+  --backgroundBase: var(--bgDark400);
+  --backgroundLvl1: var(--bgDark300);
+  --backgroundLvl2: var(--bgDark200);
+  --backgroundLvl3: var(--bgDark100);
+}
+
+//-----------------------------------------
+// Styling the focus box
+//-----------------------------------------
+*:focus {
+  outline: 2px dashed var(--accentColor);
+  outline-offset: 3px;
+}
+
+//-----------------------------------------
+// Styling the scrollbar
+//-----------------------------------------
+::-webkit-scrollbar {
+  background-color: transparent; //do I need this? TODO
+  width: 10px;
+  height: 0px;
+
+  @include respond-to("mini") {
+    width: 5px;
+  }
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accentColor);
+  border-radius: $borderRadius;
+}
+
+::-webkit-scrollbar:horizontal {
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+  border-radius: $borderRadius;
+}
+
+::selection {
+  background: var(--accentColor);
+  color: var(--textColorOpp);
+}
+
+:target:before {
+  content: "";
+  display: block;
+  height: 100px;
+  margin: -100px 0 0;
+}
+
+html {
+  overflow-x: hidden;
+  background: var(--backgroundBase);
+  scroll-behavior: smooth;
+}
+
+//-----------------------------------------
+// For main content containers
+// Makes the container full-width with maximum width
+// Centers the container in the viewport
+// Gives the container some padding (necessary for smallscreens)
+//-----------------------------------------
+.container {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: $maxWidth;
+  width: 100%;
+  padding-left: 40px;
+  padding-right: 40px;
+
+  &--narrow {
+    max-width: $maxWidthNarrow;
+  }
+
+  &--boxed {
+    max-width: 90%;
+    padding-top: 60px;
+    padding-bottom: 60px;
+    border-radius: $borderRadius;
+    background-color: var(--backgroundLvl1);
+    box-shadow: var(--shadow);
+
+    @include respond-to("x-large") {
+      max-width: $maxWidthMedium;
+    }
+  }
+}
+
+//-----------------------------------------
+// Clear inner floats
+//-----------------------------------------
+.container:before,
+.container:after,
+.group:before,
+.group:after {
+  content: " ";
+  display: table;
+}
+
+.container:after,
+.group:after {
+  clear: both;
+}
+
+.link-underline a {
+  color: var(--accentColor);
+  @include pseudo(true, after, NULL, NULL, 0, 0);
+}
+
+.pink {
+  color: var(--accentColor);
+}
+
+//-----------------------------------------
+// Hide that s***!
+//-----------------------------------------
+.hidden {
+  display: none;
+}
+
+.no-scroll {
+  overflow: hidden;
+}

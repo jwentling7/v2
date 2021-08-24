@@ -1,0 +1,41 @@
+@use "../abstracts/" as *;
+@use "title" as *;
+
+.contact {
+  &__info {
+    margin-bottom: 40px;
+    text-align: center;
+  }
+}
+
+.contact-form {
+  margin: auto;
+  max-width: 75%;
+
+  label {
+    @extend .title--small;
+  }
+
+  textarea {
+    &::-webkit-scrollbar-thumb {
+      background: var(--accentColor2);
+    }
+  }
+
+  &__btns {
+    text-align: center;
+
+    @include respond-to("small") {
+      & > *:not(:first-child) {
+        margin-top: 20px;
+        margin-left: 0;
+      }
+    }
+
+    &__reset {
+      margin-left: 15px;
+      color: var(--textColor);
+      background-color: transparent;
+    }
+  }
+}

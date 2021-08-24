@@ -1,0 +1,37 @@
+@use "../abstracts/" as *;
+
+.title {
+  font-weight: 700;
+
+  &--large {
+    font-size: 3rem;
+
+    @include respond-to("medium") {
+      font-size: 4rem;
+    }
+  }
+
+  &--medium-large {
+    font-size: 2.25rem;
+
+    @include respond-to("mini") {
+      font-size: 1.75rem;
+    }
+  }
+
+  &--medium {
+    font-size: 1.75rem;
+
+    @include respond-to("mini") {
+      font-size: 1.5rem;
+    }
+  }
+
+  &--medium-small {
+    font-size: 1.5rem;
+  }
+
+  &--small {
+    font-size: 1.25rem;
+  }
+}

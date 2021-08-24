@@ -1,0 +1,36 @@
+//-----------------------------------------
+// Breakpoints
+// Don't judge plz
+//-----------------------------------------
+$breakpoints: (
+  "why": (
+    max-width: 280px,
+  ),
+  "mini": (
+    max-width: 500px,
+  ),
+  "mini-small": (
+    min-width: 700px,
+  ),
+  "small": (
+    max-width: 883px,
+  ),
+  "medium": (
+    min-width: 884px,
+  ),
+  "large": (
+    min-width: 1025px,
+  ),
+  "x-large": (
+    min-width: 1200px,
+  ),
+);
+
+$maxWidth: 1600px;
+$maxWidthMedium: 1100px;
+$maxWidthNarrow: 600px;
+$navPad: 18px;
+$navPadSm: 15px;
+$borderRadius: 4px;
+// TODO try out cubic bezier!
+$transition: all 0.25s ease-in-out;

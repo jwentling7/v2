@@ -1,0 +1,132 @@
+@use "../abstracts/" as *;
+@use "../components/" as *;
+
+.comments-area {
+  margin-right: 50px;
+  margin-left: 50px;
+
+  label:not(:last-child) {
+    font-size: 1.25rem;
+  }
+
+  @include respond-to("small") {
+    margin-right: 10px;
+    margin-left: 10px;
+  }
+
+  .required {
+    color: var(--accentColor);
+  }
+}
+
+.comment {
+  list-style: none;
+
+  &-respond {
+    margin: auto;
+    max-width: 75%;
+  }
+
+  &-title {
+    margin-bottom: 30px;
+  }
+
+  &-form {
+    textarea,
+    input:not([type="checkbox"]) {
+      display: block;
+      margin: 5px 0;
+      border-radius: $borderRadius;
+    }
+  }
+
+  &-form {
+    .submit {
+      @extend .btn;
+      @extend .btn--accent;
+    }
+  }
+
+  &-list {
+    margin-top: 50px;
+    padding-left: 0;
+  }
+
+  &-body {
+    margin: 20px 0;
+    padding-bottom: 20px;
+
+    @include pseudo(
+      false,
+      after,
+      NULL,
+      50%,
+      0,
+      50%,
+      100%,
+      1px,
+      var(--textColor)
+    );
+  }
+
+  &__navigation {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+
+  &-meta {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+
+    @include respond-to("small") {
+      display: block;
+    }
+  }
+
+  &-metadata {
+    margin-left: auto;
+
+    @include respond-to("small") {
+      margin-top: 10px;
+    }
+  }
+
+  &-awaiting-moderation {
+    margin-top: 10px;
+    padding: 0.2em 0.4em;
+    background-color: var(--magentaTrans);
+    border-radius: $borderRadius;
+    text-align: center;
+  }
+
+  &-edit-link {
+    margin-left: 10px;
+    color: var(--accentColor);
+    @include pseudo(true, after, NULL, NULL, 0, 0);
+  }
+
+  &-author {
+    display: flex;
+    align-items: center;
+
+    .fn {
+      margin: 0 10px;
+      @extend .title;
+      @extend .title--small;
+    }
+  }
+
+  &-reply-link {
+    @extend .btn;
+    @extend .btn--ghost;
+
+    padding: 0.2em 0.75em;
+  }
+
+  &-content {
+    margin: 20px 0;
+  }
+}

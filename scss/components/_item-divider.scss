@@ -1,0 +1,7 @@
+@use "../abstracts/" as *;
+
+.item-divider {
+  @include respond-to("medium") {
+    display: none;
+  }
+}

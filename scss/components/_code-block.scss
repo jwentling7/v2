@@ -1,0 +1,25 @@
+@use "../abstracts/" as *;
+
+.code-block {
+  margin: 0 auto 18px;
+  max-width: 90%;
+
+  // Override HCB Code Block defaults
+  button {
+    color: var(--textColor);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--accentColor) !important;
+    border-radius: $borderRadius !important;
+  }
+
+  ::-webkit-scrollbar:horizontal {
+    height: 5px !important;
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: transparent !important;
+    border-radius: $borderRadius !important;
+  }
+}

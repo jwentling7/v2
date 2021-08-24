@@ -1,0 +1,69 @@
+@use "../abstracts" as *;
+
+.main-nav {
+  margin-left: $navPad;
+
+  li {
+    position: relative;
+    display: flex;
+    list-style: none;
+
+    // For Wordpress sub-menu
+    // TODO find cleaner way(?) of targeting this item without plugin
+    ul {
+      position: relative;
+      display: none;
+    }
+
+    &:hover {
+      ul {
+        position: absolute;
+        z-index: 15;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: max-content;
+        padding: 30px;
+        border-radius: $borderRadius;
+        box-shadow: var(--shadow);
+        background-color: var(--backgroundLvl3);
+
+        @include respond-to("small") {
+          bottom: 0;
+          left: 80px;
+          height: 200px;
+        }
+
+        @include respond-to("medium") {
+          top: 40px;
+          right: 50%;
+          transform: translate(50%);
+          flex-direction: row;
+          width: 500px;
+          height: 100px;
+        }
+      }
+    }
+  }
+
+  a {
+    padding: 8px 10px 0 10px;
+
+    // Animates the links in the nav with the underline
+    @include pseudo(true, after, "", "", 0, 0, 100%, 1px);
+  }
+
+  @include respond-to("medium") {
+    ul {
+      @include flex();
+    }
+
+    li {
+      margin: 0 5px;
+    }
+
+    a {
+      padding: 8px 5px 8px;
+    }
+  }
+}

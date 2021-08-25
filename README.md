@@ -1,3 +1,5 @@
+<img src="screenshot.png" alt="Jessica Wentling Personal Website v2" width="400" height="300">
+
 # Personal Website v2
 
 I took the look of v1 of my site and recreated it using SCSS. I also transfered it to WordPress by creating my own theme from scratch.

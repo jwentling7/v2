@@ -508,6 +508,7 @@ html {
   top: -30px;
   left: 20px;
   max-width: fit-content;
+  max-width: -moz-fit-content;
   padding: 10px 15px;
   box-shadow: 2px 2px 9px #121212;
   border-radius: 4px;
@@ -719,6 +720,7 @@ html {
   position: relative;
   margin: 10em auto;
   width: fit-content;
+  width: -moz-fit-content;
   padding-top: 30px;
   padding-bottom: 30px;
   text-align: center;
@@ -905,6 +907,7 @@ html {
 .section__header, .search-overlay__title {
   margin: 0 auto 40px;
   width: fit-content;
+  width: -moz-fit-content;
   padding-bottom: 15px;
   position: relative;
 }

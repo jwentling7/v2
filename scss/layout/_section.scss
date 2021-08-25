@@ -8,6 +8,7 @@
     // Margin left/right and width for sizing the pseudo element underline
     margin: 0 auto 40px;
     width: fit-content;
+    width: -moz-fit-content;
     padding-bottom: 15px;
 
     @include pseudo(false, after, NULL, NULL, 0, 50%, 50%, 4px);

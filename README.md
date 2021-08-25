@@ -2,7 +2,7 @@
 
 # Personal Website v2
 
-I took the look of v1 of my site and recreated it using SCSS. I also transfered it to WordPress by creating my own theme from scratch.
+This is [version 2](https://jessicawentling.com) of my personal site. I took the look of [version 1](https://v1.jessicawentling.com) and recreated/updated it using SCSS. I also transfered it to WordPress by creating my own theme from scratch.
 
 ## Technologies used
 

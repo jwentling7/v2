@@ -1,3 +1,7 @@
-.social-icon-list > * {
-  padding: 15px;
+.social-icon-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  width: 100%;
 }

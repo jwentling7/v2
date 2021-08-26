@@ -2,8 +2,8 @@
 @use "../components/" as *;
 
 .comments-area {
-  margin-right: 50px;
-  margin-left: 50px;
+  margin: 0 auto;
+  max-width: 60ch;
 
   label:not(:last-child) {
     font-size: 1.25rem;
@@ -21,11 +21,6 @@
 
 .comment {
   list-style: none;
-
-  &-respond {
-    margin: auto;
-    max-width: 75%;
-  }
 
   &-title {
     margin-bottom: 30px;

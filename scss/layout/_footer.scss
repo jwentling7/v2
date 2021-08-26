@@ -1,18 +1,10 @@
 @use "../abstracts/" as *;
 
 .site-footer {
-  position: relative;
   z-index: 3;
-  bottom: 0;
-  left: 0;
-  margin-top: 80px;
-  width: 100vw;
+  margin-top: 100px;
+  width: 100%;
   text-align: center;
-
-  @include respond-to("medium") {
-    margin: 80px auto 0;
-    width: 50vw;
-  }
 
   &__buttons {
     margin-bottom: 15px;

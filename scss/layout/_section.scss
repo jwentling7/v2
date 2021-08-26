@@ -6,15 +6,12 @@
 
   &__header {
     // Margin left/right and width for sizing the pseudo element underline
-    margin: 0 auto 40px;
+    margin: 0 auto 60px;
     width: fit-content;
     width: -moz-fit-content;
     padding-bottom: 15px;
+    text-align: center;
 
     @include pseudo(false, after, NULL, NULL, 0, 50%, 50%, 4px);
-
-    @include respond-to("mini") {
-      margin-bottom: 20px;
-    }
   }
 }

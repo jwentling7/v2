@@ -116,6 +116,11 @@ html {
   padding-left: 40px;
   padding-right: 40px;
 
+  @include respond-to("mini") {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
   &--narrow {
     max-width: $maxWidthNarrow;
   }
@@ -127,6 +132,10 @@ html {
     border-radius: $borderRadius;
     background-color: var(--backgroundLvl1);
     box-shadow: var(--shadow);
+
+    @include respond-to("mini") {
+      max-width: 100%;
+    }
 
     @include respond-to("x-large") {
       max-width: $maxWidthMedium;

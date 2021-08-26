@@ -39,13 +39,13 @@
 @mixin grid(
   $col1: 50%,
   $col2: 1fr,
-  $justify-items: center,
+  $justify-content: center,
   $align-items: center,
   $gap: 20px
 ) {
   display: grid;
   grid-template-columns: $col1 $col2;
-  justify-items: $justify-items;
+  justify-content: $justify-content;
   align-items: $align-items;
   gap: $gap;
 }

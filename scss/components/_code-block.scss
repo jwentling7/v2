@@ -1,10 +1,13 @@
 @use "../abstracts/" as *;
 
-.code-block {
+// Override HCB Code Block defaults
+.hcb_wrap {
   margin: 0 auto 18px;
-  max-width: 90%;
 
-  // Override HCB Code Block defaults
+  pre {
+    border-radius: $borderRadius;
+  }
+
   button {
     color: var(--textColor);
   }

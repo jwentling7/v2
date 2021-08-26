@@ -38,6 +38,8 @@
 
   // Houses the main-nav
   &__menu {
+    padding-left: 40px;
+
     @include respond-to("small") {
       visibility: hidden;
       position: absolute;
@@ -46,17 +48,21 @@
       top: -20px;
       width: 100vw;
       padding-top: 68px;
+      padding-bottom: 40px;
       background-color: var(--backgroundLvl2);
       opacity: 0;
       transform: translateY(-20%);
       transition: opacity 0.3s ease-out, transform 0.3s ease-out;
-      padding-bottom: 20px;
 
       &--active {
         visibility: visible;
         opacity: 1;
         transform: translateY(0%);
       }
+    }
+
+    @include respond-to("mini") {
+      right: -20px;
     }
 
     @include respond-to("medium") {
@@ -73,9 +79,9 @@
   }
 
   &__buttons {
-    margin-left: $navPad;
-
     @include respond-to("medium") {
+      margin-left: 10px;
+
       @include flex();
     }
   }

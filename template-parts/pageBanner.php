@@ -1,5 +1,7 @@
 <?php 
 
+// Clean this file TODO
+
 // Banner across all pages
 
     // Sets what page it is on and assign it to $page
@@ -21,6 +23,8 @@
     // Sets the title of the page banner
     if(is_archive(  )) {
         $pageInfo['title'] = get_the_archive_title(  );
+    } elseif (is_404()) {
+        $pageInfo['title'] = '404 Page Not Found :[';
     } else {
         $pageInfo['title'] = get_the_title($page);
     }
@@ -28,6 +32,11 @@
     // Sets the subtitle of the page banner
     // If page is author, use author description
     // Do not have ACF Pro, so using user description
+    $homePageLink = <<<EOD
+        <span class="link-underline">
+            <a href="/" type="text/html">here</a>
+        </span>
+    EOD;
     if(get_field('page_banner_subtitle') AND is_author( )) {
         $pageInfo['subtitle'] = get_the_author_meta( 'user_description' );
     }
@@ -35,6 +44,8 @@
     // ACF subtitle
     elseif(get_field('page_banner_subtitle') AND $page) {
         $pageInfo['subtitle'] = get_field('page_banner_subtitle', $page);
+    } elseif(is_404()) {
+        $pageInfo['subtitle'] = 'Click ' . $homePageLink . ' to return to the homepage.';
     } else {
         $pageInfo['subtitle'] = "";
     }
@@ -54,7 +65,7 @@
     <!-- 
         Page banner markup 
     -->
-    <div class="section page-banner">
+    <section class="section page-banner">
 
         <div
           class="page-banner__bg-image"
@@ -78,4 +89,4 @@
     
         </div>
 
-      </div>
+      </section>

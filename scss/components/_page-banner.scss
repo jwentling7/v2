@@ -3,17 +3,17 @@
 
 .page-banner {
   position: relative;
-  margin: 0 auto;
+  margin: 60px auto 0;
   max-width: $maxWidth;
   height: 600px;
-  overflow: hidden;
 
-  @include respond-to("small") {
-    margin-top: 50px;
-    height: 400px;
+  @include respond-to("medium") {
+    margin-top: 80px;
   }
 
   &__bg-image {
+    display: grid;
+    place-items: center;
     position: absolute;
     inset: 0;
     background-position: center;
@@ -22,16 +22,10 @@
 
   &__content {
     position: relative;
-    margin: 10em auto;
     width: fit-content;
     width: -moz-fit-content;
-    padding-top: 30px;
-    padding-bottom: 30px;
+    padding: 30px;
     text-align: center;
-
-    @include respond-to("small") {
-      margin-top: 5em;
-    }
 
     &::before {
       content: "";
@@ -59,18 +53,15 @@
   }
 
   &__intro {
-    margin: 20px 0 0;
+    margin-top: 1em;
 
     @extend .title--small;
   }
 
   &__btns {
-    margin-top: 20px;
-    text-shadow: none;
-
     // Targets all buttons except the first one
     & > *:not(:first-child) {
-      margin-left: 10px;
+      margin-left: 30px;
     }
   }
 }

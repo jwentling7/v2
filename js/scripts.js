@@ -12,18 +12,48 @@
 // lightDarkToggler.addEventListener("click", toggleLightDark);
 
 //--------------------------------------------------------
-// Mobile Menu
+// Mobile Menu Open and Close
 //--------------------------------------------------------
+const docEL = document.querySelector("html");
 const hamburger = document.querySelector(".hamburger");
 const mobileMenu = document.querySelector(".site-header__menu");
+const menuItems = document.querySelectorAll(".menu-item");
+let mobileMenuOpen = false;
 
 function toggleMobileMenu() {
+  mobileMenuOpen ? (mobileMenuOpen = false) : (mobileMenuOpen = true);
+  docEL.classList.toggle("no-scroll");
   hamburger.classList.toggle("fa-bars");
   hamburger.classList.toggle("fa-times");
   mobileMenu.classList.toggle("site-header__menu--active");
 }
 
+// Opens/closes Mobile Menu on Hamburger click
 hamburger.addEventListener("click", toggleMobileMenu);
+
+// Closes Mobile Menu on link click
+menuItems.forEach((item) =>
+  item.getElementsByTagName("a")[0].addEventListener("click", toggleMobileMenu)
+);
+
+//--------------------------------------------------------
+// Sub Menus
+//--------------------------------------------------------
+const menuItemsWithChildren = document.querySelectorAll(
+  ".menu-item-has-children"
+);
+
+function openSubMenu(index) {
+  menuItemsWithChildren[index]
+    .getElementsByClassName("sub-menu")[0]
+    .classList.toggle("sub-menu--active");
+}
+
+menuItemsWithChildren.forEach((item, index) =>
+  item.addEventListener("click", function () {
+    openSubMenu(index);
+  })
+);
 
 //--------------------------------------------------------
 // To top scroll button
@@ -32,6 +62,8 @@ const toTopBtn = document.querySelector("#to-top-btn");
 
 function scrollToTop() {
   window.scrollTo({ top: 0 });
+  mobileMenuOpen && toggleMobileMenu();
+  console.log(mobileMenuOpen);
 }
 
 function hideScrollToTop() {
@@ -66,8 +98,9 @@ let openOverlay = function () {
   // Gives just a little time for searchTerm/Results to clear its contents (see above)
   // before displaying to the user, then displays the search field
   setTimeout(() => {
+    mobileMenuOpen && toggleMobileMenu();
+    docEL.classList.toggle("no-scroll");
     searchOverlay.classList.toggle("search-overlay--active");
-    document.querySelector("html").classList.toggle("no-scroll");
     isOverlayOpen ? (isOverlayOpen = false) : (isOverlayOpen = true);
     searchTerm.focus();
   }, 100);

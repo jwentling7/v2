@@ -65,3 +65,18 @@ function my_theme_archive_title( $title ) {
 }
  
 add_filter( 'get_the_archive_title', 'my_theme_archive_title' );
+
+// Google Analytics
+add_action('wp_head', 'wpb_add_googleanalytics');
+
+function wpb_add_googleanalytics() { ?>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CGRTL61L4S"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-CGRTL61L4S');
+</script>
+<?php }

@@ -20,7 +20,7 @@ This is [version 2](https://jessicawentling.com) of my personal site. I took the
 - Added a blog with comment section
 - Added an Education & Certificate section to the homepage
 - Added a live search function to search blog posts
-- Created a custom plugin that adds custom blocks so I can change the information on the homepage from the admin side.
+- Created a custom plugin that adds custom experience, projects, and education blocks so I can change the information on the homepage from the admin side.
 
 ## TODO
 
